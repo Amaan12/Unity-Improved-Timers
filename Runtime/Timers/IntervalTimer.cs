@@ -34,5 +34,15 @@ namespace ImprovedTimers {
         }
 
         public override bool IsFinished => CurrentTime <= 0;
+
+        public override void Reset() {
+            base.Reset();
+            nextInterval = initialTime - interval;
+        }
+
+        public override void Reset(float newTime) {
+            base.Reset(newTime);
+            nextInterval = initialTime - interval;
+        }
     }
 }

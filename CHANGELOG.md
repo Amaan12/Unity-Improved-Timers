@@ -1,3 +1,7 @@
+## [1.0.4] - 2025-11-24
+### Bug Fixes
+- Fixes IntervalTimer Reset() method not resetting nextInterval, causing OnInterval callback to not fire correctly after reset
+
 ## [1.0.3] - 2025-09-21
 ### Interval Timer
 - Adds Interval Timer That Fires A Callback At Regular Intervals
