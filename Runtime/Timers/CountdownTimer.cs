@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Action;
+using System;
 
 namespace ImprovedTimers {
     /// <summary>
