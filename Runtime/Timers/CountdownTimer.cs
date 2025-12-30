@@ -51,7 +51,7 @@ namespace ImprovedTimers {
             Reverse();
             if (!IsRunning)
             {
-                IsRunning = true;
+                Resume();
                 TimerManager.RegisterTimer(this);
                 OnTimerReverseStart.Invoke();
             }
