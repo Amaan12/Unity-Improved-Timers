@@ -41,9 +41,21 @@ namespace ImprovedTimers {
         /// </summary>
         /// 
         public Action OnTimerReachedStart = delegate { };
+        public Action OnTimerReverseStart = delegate { };
         bool reversing = false;
         public void Forward() => reversing = false;
         public void Reverse() => reversing = true;
+        
+        public void StartReverse() {
+            CurrentTime = 0f;
+            Reverse();
+            if (!IsRunning)
+            {
+                IsRunning = true;
+                TimerManager.RegisterTimer(this);
+                OnTimerReverseStart.Invoke();
+            }
+        }
 
         public override bool IsFinished => CurrentTime <= 0;
         public bool HasReachedStart => CurrentTime >= initialTime;
