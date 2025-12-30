@@ -18,6 +18,7 @@ namespace ImprovedTimers {
             if (IsRunning && CurrentTime <= 0 && !reversing)
             {
                 CurrentTime = 0;
+                OnTimerReachedEnd?.Invoke();
                 Stop();
             }
 
@@ -40,6 +41,7 @@ namespace ImprovedTimers {
         /// E.g. hold to interact, skip cutscene, etc.
         /// </summary>
         /// 
+        public Action OnTimerReachedEnd = delegate { };
         public Action OnTimerReachedStart = delegate { };
         public Action OnTimerReverseStart = delegate { };
         bool reversing = false;
